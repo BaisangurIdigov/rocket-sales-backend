@@ -8,9 +8,8 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(require("./routes/routes"));
-app.use(express.static(path.resolve(__dirname, "src")));
-app.get("*", (req,res)=> {
-  res.sendFile(path.resolve(__dirname, "index.js"))
+app.get("/", (req,res)=> {
+  res.send("Hello")
 })
 
 const { PORT } = process.env;
